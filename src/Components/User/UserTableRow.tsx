@@ -1,5 +1,6 @@
 import React, {MouseEvent} from "react";
 import {UserEntity} from "../../types/user";
+import {Link} from "react-router-dom";
 
 interface Props {
     user: UserEntity;
@@ -32,8 +33,12 @@ export const UserTableRow = (props: Props) => {
 
     return (
         <tr>
-            <th>{props.user.idUser}</th>
-            <td>{props.user.nameUser}</td>
+            {/*<th>{props.user.idUser}</th>*/}
+            <th>
+                <Link to={`/user/${props.user.idUser}`}>
+                {props.user.nameUser}
+                    </Link>
+            </th>
             <td>{props.user.phoneUser}</td>
             <td>{props.user.emailUser}</td>
             <td>{props.user.noteUser}</td>

@@ -13,12 +13,12 @@ export const UserTable = (props : Props) => {
     return <table>
         <thead>
         <tr>
-            <th>ID użytkownika</th>
+            {/*<th>ID klienta</th>*/}
             <th>Nazwisko</th>
             <th>Telefon</th>
             <th>Email</th>
             <th>Notatka</th>
-            <th>Usuń urzytkownika</th>
+            <th>Usuń klienta</th>
         </tr>
         </thead>
         <tbody>

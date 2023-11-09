@@ -3,7 +3,7 @@ import {UserEntity} from "../../types/user";
 import {UserTable} from "./UserTable";
 import {Spinner} from "../Spinner/Spinner";
 
-export const Userlist = () => {
+export const Userslist = () => {
     const [userList, setUserList] = useState<UserEntity[] | null >(null);
 
     const refreshUserList = (async () => {

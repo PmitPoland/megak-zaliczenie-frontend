@@ -1,10 +1,10 @@
 import React from "react";
-import {Userlist} from "../Components/User/Userlist";
+import {Userslist} from "../Components/User/Userslist";
 import {AddUser} from "../Components/User/AddUser";
 
-export const UserView = () => (
+export const UsersView = () => (
     <>
-        <Userlist/>
+        <Userslist/>
         <AddUser/>
     </>
 )
