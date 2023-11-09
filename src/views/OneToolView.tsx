@@ -1,28 +1,28 @@
 import React, {useEffect, useState} from "react";
-import {OneUser} from "../Components/User/OneUser";
 import {useParams} from "react-router-dom";
-import {UserEntity} from "../types/user";
 import {ButtonBack} from "../Components/Buttons/ButtonBack";
+import {ToolEntity} from "../Components/Tool/tool";
+import {OneTool} from "../Components/Tool/OneTool";
 
-export const OneUserView = () => {
-    const [user, setUser] = useState<UserEntity | null>(null);
-    const {idUser} = useParams();  // Destrukturyzacja z params
+export const OneToolView = () => {
+    const [tool, setTool] = useState<ToolEntity | null>(null);
+    const {idTool} = useParams();  // Destrukturyzacja z params
 
     useEffect( ()=> {           // aby można było odczytać zapytanie z backendu
         (async ()=> {
-            const res = await fetch(`http://localhost:3007/user/user/${idUser}`);
-            setUser(await res.json());
+            const res = await fetch(`http://localhost:3007/tool/id/${idTool}`);
+            setTool(await res.json());
         })();
     },[]);
 
+    //console.log('ID Tool', tool.idTool);
 
-
-    if (user === null) {
+    if (tool === null) {
         return null;
     }
 
    // const {idUser} = useParams();  // Destrukturyzacja z params
-   //console.log('ID User', user.idUser);
+   console.log('ID Tool', tool.idTool);
 
     // if (res.status === 500 || res.status === 400) {
     //     const error = await res.json()
@@ -34,9 +34,9 @@ export const OneUserView = () => {
 
     return (
         <div>
-            <h1>Dane klienta</h1>
-            <OneUser user={user} />
-            <ButtonBack action="/user"/>
+            <h1>Narzędzie</h1>
+            <OneTool tool={tool} />
+            <ButtonBack action="/tool"/>
         </div>
     )
 }

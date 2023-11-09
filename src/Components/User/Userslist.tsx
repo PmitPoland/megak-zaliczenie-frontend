@@ -10,8 +10,8 @@ export const Userslist = () => {
         setUserList(null);  // linijka potrzebna aby zanim pobierze/odświerzy tabelę był napis wczytywanie.
         const res = await fetch('http://localhost:3007/user/list');
         const data = await res.json();
-        console.log('- DATA - rozkodowany JSON', data);
-        console.log();
+        // console.log('- DATA - rozkodowany JSON', data);
+        // console.log();
         setUserList(data);
     });
 
@@ -23,9 +23,9 @@ export const Userslist = () => {
     if (userList === null) {
         return  <Spinner/>   // <p>pobieram listę...</p>
     }
-    console.log('---- userList', userList);
-    return <>
-        <h1>Lista użytkowników: </h1>
+
+     return <>
+
         <UserTable user={userList} onUserChange={refreshUserList}/>
     </>
 }

@@ -1,10 +1,10 @@
 import React from "react";
 import {Userslist} from "../Components/User/Userslist";
-import {AddUser} from "../Components/User/AddUser";
+import {ButtonNewUser} from "../Components/Buttons/ButtonNewUser";
 
 export const UsersView = () => (
     <>
         <Userslist/>
-        <AddUser/>
+        <ButtonNewUser action="/user/add"/>
     </>
 )

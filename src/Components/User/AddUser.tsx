@@ -1,6 +1,7 @@
 import React, {FormEvent, useState} from "react";
 import {AddNewUser, UserEntity} from "../../types/user";
 import {Spinner} from "../Spinner/Spinner";
+import './AddUser.css'
 
 export const AddUser = () => {
     const [form, setForm] = useState<AddNewUser>({
@@ -55,49 +56,50 @@ export const AddUser = () => {
 
     }
 
-    return <form onSubmit={sendForm}>
-        <h2>Dodaj użytkownika</h2>
-        <p>
-            <label>
-                Nazwa: <br/>
-                <input
-                    type="text"
-                    value={form.nameUser}
-                    onChange={e => updateForm('nameUser', e.target.value)}
-                />
-            </label>
-        </p>
-        <p>
-            <label>
-                Email: <br/>
-                <input
-                    type="text"
-                    value={form.emailUser}
-                    onChange={e => updateForm('emailUser', e.target.value)}
-                />
-            </label>
-        </p>
-        <p>
-            <label>
-                Nr telefonu: <br/>
-                <input
-                    type="text"
-                    value={form.phoneUser}
-                    onChange={e => updateForm('phoneUser', e.target.value)}
-                />
-            </label>
-        </p>
-        <p>
-            <label>
-                Uwagi: <br/>
-                <input
-                    type="text"
-                    value={form.noteUser}
-                    onChange={e => updateForm('noteUser', e.target.value)}
-                />
-            </label>
-        </p>
-        <button>Dodaj</button>
-    </form>
-
+    return (
+        <form onSubmit={sendForm} className="add-user-form">
+            <h2>Dodaj użytkownika</h2>
+            <p>
+                <label>
+                    Nazwa: <br />
+                    <input
+                        type="text"
+                        value={form.nameUser}
+                        onChange={(e) => updateForm("nameUser", e.target.value)}
+                    />
+                </label>
+            </p>
+            <p>
+                <label>
+                    Email: <br />
+                    <input
+                        type="text"
+                        value={form.emailUser}
+                        onChange={(e) => updateForm("emailUser", e.target.value)}
+                    />
+                </label>
+            </p>
+            <p>
+                <label>
+                    Nr telefonu: <br />
+                    <input
+                        type="text"
+                        value={form.phoneUser}
+                        onChange={(e) => updateForm("phoneUser", e.target.value)}
+                    />
+                </label>
+            </p>
+            <p>
+                <label>
+                    Uwagi: <br />
+                    <input
+                        type="text"
+                        value={form.noteUser}
+                        onChange={(e) => updateForm("noteUser", e.target.value)}
+                    />
+                </label>
+            </p>
+            <button type="submit">Dodaj</button>
+        </form>
+    );
 }

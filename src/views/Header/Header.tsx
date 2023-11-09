@@ -11,7 +11,7 @@ export const Header = () => {
     return(
     <>
         <h1>Wypożyczalnia narzędzi "Urwany palec"</h1>
-        Menu: <NavLink style={colorOfLink} to="/user">Klienci</NavLink> | <NavLink style={colorOfLink} to="/tools">Narzędzia</NavLink>
+        Menu: <NavLink style={colorOfLink} to="/user">Klienci</NavLink> | <NavLink style={colorOfLink} to="/tool">Narzędzia</NavLink> | <NavLink style={colorOfLink} to="/rent">Wypożycz</NavLink>
         {/*NavLink* - użycie wyjaśnienie D24 (35:15)   */}
         <hr/>
     </>

@@ -1,11 +1,11 @@
 import React from "react";
-import {ButtonBack} from "../Components/ButtonBack";
-
+import {ToolList} from "../Components/Tool/ToolList";
+import {ButtonNewTool} from "../Components/Buttons/ButtonNewTool";
 
 export const ToolsView = () => (
     <>
-        <h1>lista narzędzi do zrobienia!</h1>
-        <ButtonBack action="/tools"/>
+        <ToolList/>
+        <ButtonNewTool action="/tool/add"/>
     </>
 )
 

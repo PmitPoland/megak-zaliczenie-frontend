@@ -1,0 +1,35 @@
+.tool-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tool-table th,
+.tool-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.tool-table th {
+    background-color: #f5f5f5;
+}
+
+.tool-table button {
+    background-color: #3b3b4e;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 0 auto
+}
+
+.tool-table button:hover {
+    background-color: #2379c8;
+}
+
+.h1 {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #3b3b4e;
+}

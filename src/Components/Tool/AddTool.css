@@ -1,0 +1,41 @@
+.add-tool-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.add-tool-form h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.add-tool-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.add-tool-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.add-tool-form button {
+    background-color: #3b3b4e;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.add-tool-form button:hover {
+    background-color: #2379c8;
+}

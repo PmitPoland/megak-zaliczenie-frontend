@@ -1,51 +1,35 @@
-import React, {MouseEvent} from "react";
-import {UserEntity} from "../../types/user";
+
+import React from "react";
+import { UserEntity } from "../../types/user";
 import {Link} from "react-router-dom";
 
 interface Props {
     user: UserEntity;
-    onUserChange: () => void;     // ta funkcja daje nam możliwość poinformowania rodzica, że coś się zmieniło. Pozwoli nam to odświerzyć tabelę np. po usunięciu rekordu
+    onUserChange: () => void;
 }
 
 export const UserTableRow = (props: Props) => {
-
-    const deleteUser = async (e: MouseEvent) => {  // obsługa kliknięcia myszą na ikonce KOOSZA, aby strona nie skakała do góry !
-        e.preventDefault();
-
-        if (!window.confirm(`Usunąć użytkownika ${props.user.idUser}?`)) {
-            return;
-        }
-
-        // jeśli usunąć to :
+    const deleteUser = async () => {
         const res = await fetch(`http://localhost:3007/user/delete/${props.user.idUser}`, {
-            method: 'DELETE',               // zmieniamy z domyślnej metody GET na DELETE - tam na BE mamy usuwanie użytkownika.
+            method: "DELETE",
         });
 
-        if (res.status === 500 || res.status === 400) {
-            const error = await res.json()
-            alert ('Wystąpił błąd. Nie mogę usunąć użytkownika. Spróbuj ponownie później.')
-            return;   // jak jest błąd to kończymy
+        if (res.status === 200) {
+            props.onUserChange();
         }
-
-        props.onUserChange();
-
     };
 
     return (
         <tr>
-            {/*<th>{props.user.idUser}</th>*/}
-            <th>
-                <Link to={`/user/${props.user.idUser}`}>
-                {props.user.nameUser}
-                    </Link>
-            </th>
+            <td>
+                <Link to={`/user/${props.user.idUser}`}>{props.user.nameUser}</Link> {/* Dodaj Link */}
+            </td>
             <td>{props.user.phoneUser}</td>
             <td>{props.user.emailUser}</td>
             <td>{props.user.noteUser}</td>
             <td>
-                <a href="#" onClick={deleteUser}>🗑️</a>
+                <button onClick={deleteUser}>Usuń</button>
             </td>
         </tr>
     );
-}
-
+};

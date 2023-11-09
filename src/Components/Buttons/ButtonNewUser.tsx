@@ -5,11 +5,10 @@ interface Props{
     action: string;
 }
 
-export const ButtonBack = (props: Props) => (
+export const ButtonNewUser = (props: Props) => (
     <>
         <p>
-            <Link to={props.action}>Powrót</Link>
+            <Link to={props.action}>Dodaj nowego klienta</Link>
         </p>
     </>
-    
 )
