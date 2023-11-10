@@ -15,7 +15,6 @@ export const OneRent = (props: Props) => {
 
     useEffect(() => {
         (async () => {
-            //const res = await fetch(`http://localhost:3007/tool/id/${props.rent.idRent}`);
             const res = await fetch(`http://localhost:3007/rent/rent/${props.rent.idRent}`);
             setRent(await res.json());
         })();
@@ -24,8 +23,6 @@ export const OneRent = (props: Props) => {
     if (rent === null) {
         return null;
     }
-
-    console.log("- Rent props", props);
 
     return (
         <table>

@@ -10,14 +10,14 @@ export const AddUser = () => {
         phoneUser: '',
         noteUser: '',
         userCounterOfRent: 0,
-    }) // useState, stan wewnętrzny dla wielu pól
+    })
 
     const [loading, setLoading] = useState<boolean>(false);
     const [resultInfo, setResultInfo] = useState<string | null>(null);
 
-    const updateForm = (key: string, value: any) => {  // do aktualizacji Inputa.
+    const updateForm = (key: string, value: any) => {
         setForm( form => ({
-            ...form,  // pobierz to co poprzednio i zmień tylko to co jest w kluczu key na wartość z value
+            ...form,
             [key]: value,
         }));
     };
@@ -36,16 +36,15 @@ export const AddUser = () => {
             });
 
             const data: UserEntity = await res.json();
-            console.log('*/*/*/* Data z AddUser', data);
             setLoading(false);
-            setResultInfo(`Nowy użytkownik o nazwisku ${data.nameUser} został dodany pod ID nr ${data.idUser} .`)
+            setResultInfo(`Nowy użytkownik został dodany.`)
         } finally {
             setLoading(false);
         }
     }
 
     if (loading) {
-        return  <Spinner/>   // <p>Wczytuję dane...</p>
+        return  <Spinner/>
     }
 
     if (resultInfo !== null) {

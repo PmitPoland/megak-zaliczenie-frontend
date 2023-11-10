@@ -9,8 +9,6 @@ interface Props {
 }
 
 export const ToolTable = (props : Props) => {
-    // console.log('Props', props);
-    // console.log('User', props.tool);
     return (
         <div>
             <h1 className="h1">Lista narzędzi</h1>

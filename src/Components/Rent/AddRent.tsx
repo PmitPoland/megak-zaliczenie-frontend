@@ -2,19 +2,25 @@ import React, {FormEvent, useState} from "react";
 import {Spinner} from "../Spinner/Spinner";
 import "./AddRent.css";
 import {AddNewRent, RentEntity} from "../../types/rent";
+import {useParams} from "react-router-dom";
+
+
+
 export const AddRent = () => {
+    const {idUser} = useParams();
+
     const [form, setForm] = useState<AddNewRent>({
-        idUser: "",
+        idUser: idUser || "",
         idTool: "",
         iloscDni: 1
-    }) // useState, stan wewnętrzny dla wielu pól
+    })
 
     const [loading, setLoading] = useState<boolean>(false);
     const [resultInfo, setResultInfo] = useState<string | null>(null);
 
-    const updateForm = (key: string, value: any) => {  // do aktualizacji Inputa.
+    const updateForm = (key: string, value: any) => {
         setForm( form => ({
-            ...form,  // pobierz to co poprzednio i zmień tylko to co jest w kluczu key na wartość z value
+            ...form,
             [key]: value,
         }));
     };
@@ -33,9 +39,8 @@ export const AddRent = () => {
             });
 
             const data: RentEntity = await res.json();
-            console.log('*-*- Data z RentUser', data);
             setLoading(false);
-            setResultInfo(`Nowe wypożyczenie  ${data.idUser} zostało dodane pod ID nr ${data.idRent}.`)
+            setResultInfo(`Nowe wypożyczenie zostało dodane.`)
         } finally {
             setLoading(false);
         }
@@ -50,7 +55,6 @@ export const AddRent = () => {
             <p>{resultInfo}</p>
             <button onClick={() => setResultInfo(null)}>Wypożycz kolejne narzędzie</button>
         </div>
-
     }
 
     return (
@@ -86,7 +90,6 @@ export const AddRent = () => {
                     />
                 </label>
             </p>
-
             <button type="submit">Dodaj</button>
         </form>
     )

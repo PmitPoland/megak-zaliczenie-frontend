@@ -15,8 +15,6 @@ export const OneUser = (props: Props) => {
         })();
     }, [props.user.idUser]);
 
-    console.log('- User props', props);
-
     if (user === null) {
         return null;
     }

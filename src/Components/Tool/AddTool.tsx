@@ -2,18 +2,19 @@ import React, {FormEvent, useState} from "react";
 import {Spinner} from "../Spinner/Spinner";
 import {AddNewTool, ToolEntity} from "./tool";
 import "./AddTool.css";
+
 export const AddTool = () => {
     const [form, setForm] = useState<AddNewTool>({
         nameTool: '',
         depositTool: 0,
-    }) // useState, stan wewnętrzny dla wielu pól
+    })
 
     const [loading, setLoading] = useState<boolean>(false);
     const [resultInfo, setResultInfo] = useState<string | null>(null);
 
-    const updateForm = (key: string, value: any) => {  // do aktualizacji Inputa.
+    const updateForm = (key: string, value: any) => {
         setForm( form => ({
-            ...form,  // pobierz to co poprzednio i zmień tylko to co jest w kluczu key na wartość z value
+            ...form,
             [key]: value,
         }));
     };
@@ -32,16 +33,15 @@ export const AddTool = () => {
             });
 
             const data: ToolEntity = await res.json();
-            console.log('*-*- Data z ToolUser', data);
             setLoading(false);
-            setResultInfo(`Nowe narzędzie  ${data.nameTool} zostało dodane pod ID nr ${data.idTool}.`)
+            setResultInfo(`Nowe narzędzie zostało dodane.`)
         } finally {
             setLoading(false);
         }
     }
 
     if (loading) {
-        return  <Spinner/>   // <p>Wczytuję dane...</p>
+        return  <Spinner/>
     }
 
     if (resultInfo !== null) {

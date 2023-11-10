@@ -4,7 +4,7 @@ import {AddRent} from "./AddRent";
 
 export const AddRentBox = () => (
     <>
-        <AddRent/>
+        <AddRent />
         <ButtonBack action="/rent"/>
     </>
 )

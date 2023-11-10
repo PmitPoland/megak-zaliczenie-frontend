@@ -1,4 +1,3 @@
-
 import React from "react";
 import { UserEntity } from "../../types/user";
 import {Link} from "react-router-dom";
@@ -22,7 +21,7 @@ export const UserTableRow = (props: Props) => {
     return (
         <tr>
             <td>
-                <Link to={`/user/${props.user.idUser}`}>{props.user.nameUser}</Link> {/* Dodaj Link */}
+                <Link to={`/user/${props.user.idUser}`}>{props.user.nameUser}</Link>
             </td>
             <td>{props.user.phoneUser}</td>
             <td>{props.user.emailUser}</td>

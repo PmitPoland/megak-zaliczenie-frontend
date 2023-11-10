@@ -13,7 +13,6 @@ export const Header = () => {
         <h1 className="H1">"Zmieszany klient"- Wypożyczalnia narzędzi</h1>
 
         <NavLink style={colorOfLink} to="/user">Klienci</NavLink> | <NavLink style={colorOfLink} to="/tool">Narzędzia</NavLink> | <NavLink style={colorOfLink} to="/rent">Wypożyczenia</NavLink>
-        {/*NavLink* - użycie wyjaśnienie D24 (35:15)   */}
         <hr/>
     </div>
     )

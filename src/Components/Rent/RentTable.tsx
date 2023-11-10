@@ -25,7 +25,7 @@ export const RentTable = (props: Props) => {
                 </tr>
                 </thead>
                 <tbody>
-                {props.rent.map((rent) => (
+                {props.rent.map((rent: RentEntity) => (
                     <RentTableRow rent={rent} key={rent.idRent} onRentChange={props.onRentChange} />
                 ))}
                 </tbody>

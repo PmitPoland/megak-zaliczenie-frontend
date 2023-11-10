@@ -12,7 +12,7 @@ import {AddUserBox} from "./Components/User/AddUserBox";
 import {AddToolBox} from "./Components/Tool/AddToolBox";
 import {RentsView} from "./views/RentsView";
 import {OneRentView} from "./views/OneRentView";
-import {AddRentBox} from "./Components/Rent/AddToolBox";
+import {AddRentBox} from "./Components/Rent/AddRentBox";
 
 export const App = () =>  {
   return (
@@ -26,7 +26,6 @@ export const App = () =>  {
              <Route path="/user/add" element={<AddUserBox/>} />
              <Route path="/user/:idUser" element={<OneUserView/>} />
              <Route path="/user" element={<UsersView/>} />
-
              <Route path="/rent/add" element={<AddRentBox/>} />
              <Route path="/rent/add/:idUser" element={<AddRentBox/>} />
              <Route path="/rent/:idRent" element={<OneRentView/>} />

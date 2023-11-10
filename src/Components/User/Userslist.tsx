@@ -7,11 +7,9 @@ export const Userslist = () => {
     const [userList, setUserList] = useState<UserEntity[] | null >(null);
 
     const refreshUserList = (async () => {
-        setUserList(null);  // linijka potrzebna aby zanim pobierze/odświerzy tabelę był napis wczytywanie.
+        setUserList(null);
         const res = await fetch('http://localhost:3007/user/list');
         const data = await res.json();
-        // console.log('- DATA - rozkodowany JSON', data);
-        // console.log();
         setUserList(data);
     });
 
@@ -21,7 +19,7 @@ export const Userslist = () => {
     },[]);
 
     if (userList === null) {
-        return  <Spinner/>   // <p>pobieram listę...</p>
+        return  <Spinner/>
     }
 
      return <>

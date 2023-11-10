@@ -14,16 +14,8 @@ const formatDate = (dateString: Date) => {
 };
 
 export const RentTableRow = (props: Props) => {
-    const deleteRent = async () => {
-        // const res = await fetch(`http://localhost:3007/rent/delete/${props.rent.idRent}`, {
-        //     method: "DELETE",
-        // });
-        //
-        // // if (res.status === 200) {
-        // //     props.onRentChange();
-        // // }
-        // props.onRentChange();
-        alert('Kasowanie rekordu');
+    const billingRent = async () => {
+        alert('Rozliczenie wypożyczenia- funkcja w przygotowaniu');
         return;
     };
 
@@ -39,7 +31,7 @@ export const RentTableRow = (props: Props) => {
             <td>{props.rent.idUser}</td>
             <td>{props.rent.idTool}</td>
             <td>{props.rent.iloscDni}</td>
-            <td>{!props.rent.rentalActive? "TAK" : <button onClick={deleteRent}>Rozlicz</button> }</td>
+            <td>{!props.rent.rentalActive? "TAK" : <button onClick={billingRent}>Rozlicz</button> }</td>
         </tr>
     );
 };
