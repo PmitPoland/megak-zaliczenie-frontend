@@ -1,11 +1,12 @@
 import React, {FormEvent, useState} from "react";
 import {Spinner} from "../Spinner/Spinner";
-import {AddNewTool, ToolEntity} from "./tool";
-import "./AddTool.css";
-export const AddTool = () => {
-    const [form, setForm] = useState<AddNewTool>({
-        nameTool: '',
-        depositTool: 0,
+import "./AddRent.css";
+import {AddNewRent, RentEntity} from "../../types/rent";
+export const AddRent = () => {
+    const [form, setForm] = useState<AddNewRent>({
+        idUser: "",
+        idTool: "",
+        iloscDni: 1
     }) // useState, stan wewnętrzny dla wielu pól
 
     const [loading, setLoading] = useState<boolean>(false);
@@ -23,7 +24,7 @@ export const AddTool = () => {
 
         try {
             setLoading(true);
-            const res = await fetch('http://localhost:3007/tool/add', {
+            const res = await fetch('http://localhost:3007/rent/add', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -31,10 +32,10 @@ export const AddTool = () => {
                 body: JSON.stringify(form),
             });
 
-            const data: ToolEntity = await res.json();
-            console.log('*-*- Data z ToolUser', data);
+            const data: RentEntity = await res.json();
+            console.log('*-*- Data z RentUser', data);
             setLoading(false);
-            setResultInfo(`Nowe narzędzie  ${data.nameTool} zostało dodane pod ID nr ${data.idTool}.`)
+            setResultInfo(`Nowe wypożyczenie  ${data.idUser} zostało dodane pod ID nr ${data.idRent}.`)
         } finally {
             setLoading(false);
         }
@@ -47,31 +48,41 @@ export const AddTool = () => {
     if (resultInfo !== null) {
         return  <div>
             <p>{resultInfo}</p>
-            <button onClick={() => setResultInfo(null)}>Dodaj kolejne narzędzie</button>
+            <button onClick={() => setResultInfo(null)}>Wypożycz kolejne narzędzie</button>
         </div>
 
     }
 
     return (
-        <form onSubmit={sendForm} className="add-tool-form">
-            <h2>Dodaj narzędzie</h2>
+        <form onSubmit={sendForm} className="add-rent-form">
+            <h2>Wypożycz</h2>
             <p>
                 <label>
-                    Nazwa: <br />
+                    Id Klienta: <br />
                     <input
-                        type="text"
-                        value={form.nameTool}
-                        onChange={(e) => updateForm("nameTool", e.target.value)}
+                        type="string"
+                        value={form.idUser}
+                        onChange={(e) => updateForm("idUser", e.target.value)}
                     />
                 </label>
             </p>
             <p>
                 <label>
-                    Kaucja:<br />
+                    Id narzędzia:<br />
+                    <input
+                        type="string"
+                        value={form.idTool}
+                        onChange={(e) => updateForm("idTool", e.target.value)}
+                    />
+                </label>
+            </p>
+            <p>
+                <label>
+                    Na ile dni:<br />
                     <input
                         type="number"
-                        value={form.depositTool}
-                        onChange={(e) => updateForm("depositTool", e.target.value)}
+                        value={form.iloscDni}
+                        onChange={(e) => updateForm("iloscDni", e.target.value)}
                     />
                 </label>
             </p>

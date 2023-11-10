@@ -1,6 +1,6 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
-
+import "./Header.css"
 
 export const Header = () => {
     const colorOfLink = ({ isActive} : {
@@ -9,12 +9,13 @@ export const Header = () => {
     );       {/*NavLink* - użycie wyjaśnienie D24 (35:15)   */}
 
     return(
-    <>
-        <h1>Wypożyczalnia narzędzi "Urwany palec"</h1>
-        Menu: <NavLink style={colorOfLink} to="/user">Klienci</NavLink> | <NavLink style={colorOfLink} to="/tool">Narzędzia</NavLink> | <NavLink style={colorOfLink} to="/rent">Wypożycz</NavLink>
+    <div className="Header">
+        <h1 className="H1">"Zmieszany klient"- Wypożyczalnia narzędzi</h1>
+
+        <NavLink style={colorOfLink} to="/user">Klienci</NavLink> | <NavLink style={colorOfLink} to="/tool">Narzędzia</NavLink> | <NavLink style={colorOfLink} to="/rent">Wypożyczenia</NavLink>
         {/*NavLink* - użycie wyjaśnienie D24 (35:15)   */}
         <hr/>
-    </>
+    </div>
     )
 }
 

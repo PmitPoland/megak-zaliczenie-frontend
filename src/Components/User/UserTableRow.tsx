@@ -28,6 +28,11 @@ export const UserTableRow = (props: Props) => {
             <td>{props.user.emailUser}</td>
             <td>{props.user.noteUser}</td>
             <td>
+                <Link to={`/rent/add/${props.user.idUser}`}>
+                    Dodaj wypożyczenie
+                </Link>
+            </td>
+            <td>
                 <button onClick={deleteUser}>Usuń</button>
             </td>
         </tr>

@@ -34,8 +34,7 @@ export const ToolTableRow = (props: Props) => {
         <tr>
             <th>
                 <Link to={`/tool/${props.tool.idTool}`}>
-                {props.tool.nameTool}
-                    </Link>
+                {props.tool.nameTool} </Link>
             </th>
             <td>{props.tool.depositTool}</td>
             <td>{props.tool.toolCounterRent}</td>

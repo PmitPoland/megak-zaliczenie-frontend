@@ -19,12 +19,16 @@ export const UserTable = (props: Props) => {
                 <th>Telefon</th>
                 <th>Email</th>
                 <th>Notatka</th>
+                <th>Wypożycz narzędzie</th>
                 <th>Usuń klienta</th>
             </tr>
             </thead>
             <tbody>
             {props.user.map((user) => (
-                <UserTableRow user={user} key={user.idUser} onUserChange={props.onUserChange} />
+                <UserTableRow
+                    user={user}
+                    key={user.idUser}
+                    onUserChange={props.onUserChange} />
             ))}
             </tbody>
         </table>
